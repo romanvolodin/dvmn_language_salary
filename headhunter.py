@@ -61,14 +61,14 @@ def calc_rub_salary(vacancy):
 def collect_languages_statistic(languages):
     languages_statictic = {}
     for language in languages:
-        vacancies = fetch_language_vacancies(language)
+        vacancies = fetch_all_language_vacancies(language)
         salaries = [
-            calc_rub_salary(vacancy) for vacancy in vacancies["items"]
+            calc_rub_salary(vacancy) for vacancy in vacancies
             if calc_rub_salary(vacancy) is not None
         ]
         average_salary = int(sum(salaries) / len(salaries))
         languages_statictic[language] = {
-            "vacancies_found": vacancies["found"],
+            "vacancies_found": len(vacancies),
             "vacancies_processed": len(salaries),
             "average_salary": average_salary
         }
