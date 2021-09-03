@@ -2,6 +2,7 @@ from itertools import count
 
 import requests
 
+from salary import calc_salary
 
 AREAS = {
     "moscow": 1,
@@ -49,13 +50,9 @@ def calc_rub_salary(vacancy):
     salary = vacancy["salary"]
     if salary is None or salary["currency"] != "RUR":
         return
-    min_salary = salary.get("from", None)
-    max_salary = salary.get("to", None)
-    if min_salary is None:
-        return max_salary * 0.8
-    if max_salary is None:
-        return min_salary * 1.2
-    return (min_salary + max_salary) / 2
+    min_salary = 0 if salary["from"] is None else salary["from"]
+    max_salary = 0 if salary["to"] is None else salary["to"]
+    return calc_salary(min_salary, max_salary)
 
 
 def collect_languages_statistic(languages):
