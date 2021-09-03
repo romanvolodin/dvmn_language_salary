@@ -38,7 +38,7 @@ def count_language_vacancies(languages):
     return counted_vacancies
 
 
-def calc_average_rub_salary(vacancy):
+def calc_rub_salary(vacancy):
     salary = vacancy["salary"]
     if salary is None or salary["currency"] != "RUR":
         return
