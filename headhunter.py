@@ -36,3 +36,16 @@ def count_language_vacancies(languages):
         except requests.exceptions.HTTPError:
             counted_vacancies[language] = None
     return counted_vacancies
+
+
+def calc_average_rub_salary(vacancy):
+    salary = vacancy["salary"]
+    if salary is None or salary["currency"] != "RUR":
+        return
+    min_salary = salary.get("from", None)
+    max_salary = salary.get("to", None)
+    if min_salary is None:
+        return max_salary * 0.8
+    if max_salary is None:
+        return min_salary * 1.2
+    return (min_salary + max_salary) / 2
