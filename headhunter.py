@@ -49,3 +49,20 @@ def calc_rub_salary(vacancy):
     if max_salary is None:
         return min_salary * 1.2
     return (min_salary + max_salary) / 2
+
+
+def collect_languages_statistic(languages):
+    languages_statictic = {}
+    for language in languages:
+        vacancies = fetch_language_vacancies(language)
+        salaries = [
+            calc_rub_salary(vacancy) for vacancy in vacancies["items"]
+            if calc_rub_salary(vacancy) is not None
+        ]
+        average_salary = int(sum(salaries) / len(salaries))
+        languages_statictic[language] = {
+            "vacancies_found": vacancies["found"],
+            "vacancies_processed": len(salaries),
+            "average_salary": average_salary
+        }
+    return languages_statictic
