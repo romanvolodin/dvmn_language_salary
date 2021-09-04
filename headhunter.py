@@ -8,18 +8,6 @@ AREAS = {
     "moscow": 1,
 }
 
-LANGUAGES = (
-    "JavaScript",
-    "Python",
-    "Java",
-    "TypeScript",
-    "C#",
-    "PHP",
-    "C++",
-    "C",
-    "Ruby",
-)
-
 
 def fetch_language_vacancies(language, per_page=20, page=0):
     response = requests.get(
