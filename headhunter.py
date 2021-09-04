@@ -23,17 +23,6 @@ def fetch_language_vacancies(language, per_page=20, page=0):
     return response.json()
 
 
-def count_language_vacancies(languages):
-    counted_vacancies = {}
-    for language in languages:
-        try:
-            vacancies = fetch_language_vacancies(language)
-            counted_vacancies[language] = vacancies["found"]
-        except requests.exceptions.HTTPError:
-            counted_vacancies[language] = None
-    return counted_vacancies
-
-
 def calc_rub_salary(vacancy):
     salary = vacancy["salary"]
     if salary is None or salary["currency"] != "RUR":
