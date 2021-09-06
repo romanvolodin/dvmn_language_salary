@@ -37,7 +37,9 @@ def collect_languages_statistic(api_key, languages):
             salary = calc_rub_salary(vacancy)
             if salary:
                 salaries.append(salary)
-        average_salary = int(sum(salaries) / len(salaries))
+        average_salary = 0
+        if salaries:
+            average_salary = int(sum(salaries) / len(salaries))
         languages_statistic[language] = {
             "vacancies_found": len(vacancies),
             "vacancies_processed": len(salaries),
