@@ -24,8 +24,8 @@ def calc_rub_salary(vacancy):
     salary = vacancy["salary"]
     if salary is None or salary["currency"] != "RUR":
         return
-    min_salary = 0 if salary["from"] is None else salary["from"]
-    max_salary = 0 if salary["to"] is None else salary["to"]
+    min_salary = salary["from"] if salary["from"] else 0
+    max_salary = salary["to"] if salary["to"] else 0
     return calc_salary(min_salary, max_salary)
 
 
