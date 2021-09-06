@@ -1,7 +1,7 @@
 from terminaltables import SingleTable
 
 
-def prepare_table_data(language_statistic):
+def prepare_language_table(language_statistic):
     table_data = [
         ("Язык программирования", "Вакансий найдено",
          "Вакансий обработано", "Средняя зарплата"),
