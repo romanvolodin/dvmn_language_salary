@@ -17,7 +17,7 @@ def prepare_language_table(language_statistic):
 def generate_language_table(table_data, table_title):
     table = SingleTable(table_data)
     table.title = table_title
-    table.justify_columns[1] = 'right'
-    table.justify_columns[2] = 'right'
-    table.justify_columns[3] = 'right'
+    table.justify_columns[1] = "right"
+    table.justify_columns[2] = "right"
+    table.justify_columns[3] = "right"
     return table.table
