@@ -5,20 +5,20 @@ import headhunter as hh
 
 from table import print_language_table
 
-LANGUAGES = (
-    "JavaScript",
-    "Python",
-    "Java",
-    "TypeScript",
-    "C#",
-    "PHP",
-    "C++",
-    "C",
-    "Ruby",
-)
-
 
 def main():
+    LANGUAGES = (
+        "JavaScript",
+        "Python",
+        "Java",
+        "TypeScript",
+        "C#",
+        "PHP",
+        "C++",
+        "C",
+        "Ruby",
+    )
+
     env = Env()
     env.read_env()
     api_key = env.str("SUPERJOB_API_KEY")
