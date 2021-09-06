@@ -6,10 +6,11 @@ from salary import calc_salary
 
 
 def fetch_language_vacancies(language, per_page=20, page=0):
+    moscow = 1
     response = requests.get(
         "https://api.hh.ru/vacancies",
         params={
-            "area": 1,
+            "area": moscow,
             "text": language,
             "per_page": per_page,
             "page": page,
