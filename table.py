@@ -21,10 +21,3 @@ def generate_language_table(table_data, table_title):
     table.justify_columns[2] = 'right'
     table.justify_columns[3] = 'right'
     return table.table
-
-
-def print_language_table(language_statistic, table_title):
-    table = generate_language_table(
-        prepare_table_data(language_statistic), table_title
-    )
-    print(table)

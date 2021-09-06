@@ -3,7 +3,7 @@ from environs import Env
 import superjob as sj
 import headhunter as hh
 
-from table import print_language_table
+from table import generate_language_table, prepare_table_data
 
 
 def main():
@@ -25,8 +25,14 @@ def main():
 
     hh_statistic = hh.collect_languages_statistic(LANGUAGES)
     sj_statistic = sj.collect_languages_statistic(api_key, LANGUAGES)
-    print_language_table(hh_statistic, "HeadHunter Москва")
-    print_language_table(sj_statistic, "SuperJob Москва")
+    hh_table = generate_language_table(
+        prepare_table_data(hh_statistic), "HeadHunter Москва"
+    )
+    sj_table = generate_language_table(
+        prepare_table_data(sj_statistic), "SuperJob Москва"
+    )
+    print(hh_table)
+    print(sj_table)
 
 
 if __name__ == "__main__":
