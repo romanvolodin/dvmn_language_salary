@@ -7,6 +7,7 @@ from salary import calc_salary
 
 def fetch_language_vacancies(api_key, language, count=20, page=0):
     moscow = 4
+    all_time = 0
     response = requests.get(
         "https://api.superjob.ru/2.33/vacancies/",
         headers={"X-Api-App-Id": api_key},
@@ -15,7 +16,7 @@ def fetch_language_vacancies(api_key, language, count=20, page=0):
             "keyword": language,
             "count": count,
             "page": page,
-            "period": 0,
+            "period": all_time,
         },
     )
     response.raise_for_status()
