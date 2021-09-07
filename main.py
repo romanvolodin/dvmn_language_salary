@@ -7,7 +7,7 @@ from table import generate_language_table, prepare_language_table
 
 
 def main():
-    LANGUAGES = (
+    languages = (
         "JavaScript",
         "Python",
         "Java",
@@ -23,8 +23,8 @@ def main():
     env.read_env()
     api_key = env.str("SUPERJOB_API_KEY")
 
-    hh_statistic = hh.collect_languages_statistic(LANGUAGES)
-    sj_statistic = sj.collect_languages_statistic(api_key, LANGUAGES)
+    hh_statistic = hh.collect_languages_statistic(languages)
+    sj_statistic = sj.collect_languages_statistic(api_key, languages)
     hh_table = generate_language_table(
         prepare_language_table(hh_statistic), "HeadHunter Москва"
     )
