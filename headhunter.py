@@ -21,12 +21,9 @@ def fetch_language_vacancies(language, per_page=20, page=0):
 
 
 def calc_rub_salary(vacancy):
-    salary = vacancy["salary"]
-    if salary is None or salary["currency"] != "RUR":
+    if vacancy["salary"] is None or vacancy["salary"]["currency"] != "RUR":
         return
-    min_salary = salary["from"] if salary["from"] else 0
-    max_salary = salary["to"] if salary["to"] else 0
-    return calc_salary(min_salary, max_salary)
+    return calc_salary(vacancy["salary"]["from"], vacancy["salary"]["to"])
 
 
 def collect_languages_statistic(languages):
